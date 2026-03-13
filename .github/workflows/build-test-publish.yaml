@@ -38,10 +38,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run tests
         run: npm test
@@ -70,17 +69,6 @@ jobs:
         id: publish-meta
         if: github.event_name != 'pull_request'
         run: echo "image-ref=${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}" >> "$GITHUB_OUTPUT"
-
-      - name: Install Cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@v3
-
-      - name: Sign published image
-        if: github.event_name != 'pull_request'
-        env:
-          COSIGN_EXPERIMENTAL: "false"
-        run: |
-          cosign sign --yes ${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
 
   image-security-gates:
     if: github.event_name != 'pull_request'
