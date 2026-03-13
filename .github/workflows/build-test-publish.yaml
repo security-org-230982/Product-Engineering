@@ -24,9 +24,15 @@ jobs:
   sast-sca:
     uses: security-org-230982/security-engineering/.github/workflows/product-static-scans.yaml@main
 
+  iac-scan:
+    uses: security-org-230982/security-engineering/.github/workflows/iac-static-scans.yaml@main
+
   build-test-publish:
     runs-on: ubuntu-latest
-    needs: [secrets-scan, sast-sca]
+    needs:
+      - secrets-scan
+      - sast-sca
+      - iac-scan
     outputs:
       image-ref: ${{ steps.publish-meta.outputs.image-ref }}
 
