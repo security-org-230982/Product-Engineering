@@ -81,6 +81,6 @@ jobs:
   image-security-gates:
     if: github.event_name != 'pull_request'
     needs: build-test-publish
-    uses: security-org-230982/security-engineering/.github/workflows/image-post-build.yaml@main
+    uses: security-org-230982/security-engineering/.github/workflows/image-signing.yaml@main
     with:
       image-ref: ${{ needs.build-test-publish.outputs.image-ref }}
