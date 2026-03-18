@@ -11,12 +11,12 @@ permissions:
 
 jobs:
   secrets-scan:
-    uses: security-org-230982/security-engineering/.github/workflows/gitleaks.yaml@main
+    uses: security-org-230982/security-engineering/.github/workflows/secrets-scan.yaml@main
     secrets:
       GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
 
   sast-scan:
-    uses: security-org-230982/security-engineering/.github/workflows/product-static-scans.yaml@main
+    uses: security-org-230982/security-engineering/.github/workflows/static-code-scan.yaml@main
 
   iac-scan:
     uses: security-org-230982/security-engineering/.github/workflows/iac-static-scans.yaml@main
