@@ -15,7 +15,7 @@ env:
 
 jobs:
   secrets-scan:
-    uses: security-org-230982/security-engineering/.github/workflows/secret-scan.yaml@main
+    uses: security-org-230982/security-engineering/.github/workflows/secrets-scan.yaml@main
     secrets:
       GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
 
@@ -50,7 +50,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build image (validation only)
+      - name: Build image (validation only) // validaton check
         uses: docker/build-push-action@v6
         with:
           context: .
