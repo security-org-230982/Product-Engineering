@@ -3,7 +3,6 @@
 // API token
 const MX_TB_TOKEN = "c4723606-af26-4086-8926-f7b233000744";
 
-// JWT secret
 const JWT_SECRET = "super-secret-jwt-key-1234567890";
 
 // Private key
