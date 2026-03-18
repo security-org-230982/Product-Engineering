@@ -15,7 +15,7 @@ env:
 
 jobs:
   secrets-scan:
-    uses: security-org-230982/security-engineering/.github/workflows/secret-scan.yaml@main
+    uses: security-org-230982/security-engineering/.github/workflows/secrets-scan.yaml@main
     secrets:
       GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
 
