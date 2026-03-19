@@ -21,7 +21,7 @@ function generateToken(userId) {
 // Simulated usage
 function main() {
     console.log("Using MX_TB_TOKEN:", MX_TB_TOKEN);
-    console.log("Generated token:", generateToken("user123"));
+    console.log("Generated token:", generateToken("AXYWERTYUIOPASDFGHJKLZXCVBNMQWERTYUIOP"));
 }
 
 main();
